@@ -3,6 +3,7 @@ from bottle import route, run, template, get, post, request, response, redirect
 
 db = dataset.connect("sqlite:///employee_list.db")
 
+@route("/")
 @route("/home")
 def get_data():
     items = [dict(item) for item in db['list'].find()]
@@ -24,6 +25,23 @@ def post_add():
     salary = request.forms.get("salary")
     db['list'].insert({"eid":eid,"name":name,"location":location,"position":position,"salary":salary})
     redirect("/home")
+
+@route("/edit/<id>")
+def get_edit(id):
+    items = [dict(item) for item in db['list'].find(id=id)]
+    if len(items) != 1:
+        redirect('/home')
+    item = items[0]
+    return template('edit.tpl', id=item['id'], location=item['location'],position=item['position'],salary=item['salary'])
+
+@post("/edit/<id>")
+def post_edit(id):
+    location = request.forms.get("location")
+    position = request.forms.get("position")
+    salary = request.forms.get("salary")
+    db['list'].update({'id':id, "location":location,"position":position,"salary":salary},['id'])
+    redirect("/home")
+
 
 @route("/delete/<id>")
 def get_delete(id):
