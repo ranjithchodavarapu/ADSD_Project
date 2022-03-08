@@ -1,4 +1,5 @@
 import dataset
+import abstraction
 from bottle import route, run, template, get, post, request, response, redirect
 
 db = dataset.connect("sqlite:///employee_list.db")
@@ -6,11 +7,8 @@ db = dataset.connect("sqlite:///employee_list.db")
 @route("/")
 @route("/home")
 def get_data():
-    items = [dict(item) for item in db['list'].find()]
-    employee_list = [{"id":item['id'], "eid":item['eid'],"ename":item['name'],"elocation":item['location'],"eposition":item['position'],"esalary":item['salary']} for item in items]
+    employee_list = abstraction.get_employee_list()
     return template('employee_data.tpl', employee_list=employee_list)
-
-
 
 @get("/add")
 def get_add():
@@ -23,7 +21,7 @@ def post_add():
     location = request.forms.get("location")
     position = request.forms.get("position")
     salary = request.forms.get("salary")
-    db['list'].insert({"eid":eid,"name":name,"location":location,"position":position,"salary":salary})
+    abstraction.add_employee(eid,name,location,position,salary)
     redirect("/home")
 
 @route("/edit/<id>")
@@ -39,13 +37,13 @@ def post_edit(id):
     location = request.forms.get("location")
     position = request.forms.get("position")
     salary = request.forms.get("salary")
-    db['list'].update({'id':id, "location":location,"position":position,"salary":salary},['id'])
+    abstraction.update_employee(id, location, position, salary)
     redirect("/home")
 
 
 @route("/delete/<id>")
 def get_delete(id):
-    db['list'].delete(id=id)
+    abstraction.delete_employee(id)
     redirect("/home")
 
 run(host='localhost', port=8080)
