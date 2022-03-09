@@ -7,6 +7,7 @@ Add a new item..
   <p>Employee Name :<input name="name"/></p>
   <p>Location:<input name="location"/></p>
   <p>Desgination:<input name="position"/></p>
+  <p>experience:<input name="experience"/></p>
   <p>Salary:<input name="salary"/></p>
   <p><button type="submit">Submit</button></p>
 </form>
