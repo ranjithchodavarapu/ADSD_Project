@@ -19,4 +19,3 @@ except Exception as e:
     db.rollback()
 
 print("done.")
-#insurance,policy package
