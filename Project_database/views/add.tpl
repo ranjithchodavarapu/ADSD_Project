@@ -4,7 +4,9 @@ Add a new item..
 <hr/>
 <form action="/add" method="post">
   <p>New id:<input name="eid"/></p>
-  <p>Employee Name :<input name="name"/></p>
+  <p>Employee fristName :<input name="firstname"/></p>
+  <p>Employee lastName :<input name="lastname"/></p>
+  <p>Employee dob :<input name="dob"/></p>
   <p>Location:<input name="location"/></p>
   <p>Desgination:<input name="position"/></p>
   <p>experience:<input name="experience"/></p>

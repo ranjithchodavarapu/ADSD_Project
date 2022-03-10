@@ -17,12 +17,14 @@ def get_add():
 @post("/add")
 def post_add():
     eid = request.forms.get("eid")
-    name = request.forms.get("name")
+    firstname = request.forms.get("firstname")
+    lastname = request.forms.get("lastname")
+    dob = request.forms.get("dob")
     location = request.forms.get("location")
     position = request.forms.get("position")
     salary = request.forms.get("salary")
     experience = request.forms.get("experience")
-    abstraction.add_employee(eid,name,location,position,salary,experience)
+    abstraction.add_employee(eid,firstname,lastname,dob,location,position,salary,experience)
     redirect("/home")
 
 @route("/edit/<id>")
@@ -31,15 +33,16 @@ def get_edit(id):
     if len(items) != 1:
         redirect('/home')
     item = items[0]
-    return template('edit.tpl', id=item['id'], location=item['location'],position=item['position'],salary=item['salary'],experience=item["experience"])
+    return template('edit.tpl', id=item['id'],dob = item["dob"],location=item['location'],position=item['position'],salary=item['salary'],experience=item["experience"])
 
 @post("/edit/<id>")
 def post_edit(id):
+    dob = request.forms.get("dob")
     location = request.forms.get("location")
     position = request.forms.get("position")
     salary = request.forms.get("salary")
     experience = request.forms.get("experience")
-    abstraction.update_employee(id, location, position, salary,experience)
+    abstraction.update_employee(id,dob, location, position, salary,experience)
     redirect("/home")
 
 
