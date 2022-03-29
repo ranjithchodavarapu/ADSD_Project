@@ -1,6 +1,7 @@
 from mongita import MongitaClientDisk
 client = MongitaClientDisk()
 
+
 try:
     employee_db = client.employee_db
     employee_list = employee_db.employee_list
