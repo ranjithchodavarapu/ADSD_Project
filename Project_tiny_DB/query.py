@@ -56,3 +56,9 @@ print(data.contains(employee.salary == '130k'))
 # check number of documents that match the query 
 print(data.count(employee.location == 'ohio'))
 
+# table implementation 
+table = data.table('employee_ssn')
+#table.insert({'ssn': "00123458"})
+print(table.all())
+#data.drop_table('employee_ssn')
+print(data.tables())
