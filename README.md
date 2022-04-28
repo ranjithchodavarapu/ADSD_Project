@@ -1,1 +1,1 @@
-# implementation of database
+# implementation of TinyDB
