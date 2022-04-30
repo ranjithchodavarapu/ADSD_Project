@@ -3,11 +3,11 @@ data = TinyDB('employee_db.json')
 
 
 #return all the data from the database in json format 
-#print(data.all())
+print(data.all())
 
 # iterating over the data
-#for i in data:
-    #print(i)
+for i in data:
+    print(i)
 
 
 employee = Query()
@@ -36,7 +36,7 @@ print(data.search(employee.lastname.matches('[az]*')))
 #  only a part of item to match re
 print(data.search(employee.firstname.search('a+')))
 
-# fetch atleast one document that matches the query using one_of in list data
+# fetch atleast one document that matches the query using one_of in list of data
 print(data.search(employee.firstname.one_of(['jim', 'jack'])))
 
 # implemention of logical operators 
@@ -62,3 +62,5 @@ table = data.table('employee_ssn')
 print(table.all())
 #data.drop_table('employee_ssn')
 print(data.tables())
+
+
