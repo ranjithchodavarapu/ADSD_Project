@@ -36,7 +36,7 @@ print(data.search(employee.lastname.matches('[az]*')))
 #  only a part of item to match re
 print(data.search(employee.firstname.search('a+')))
 
-# fetch atleast one document that matches the query using one_of in list of data
+# fetch atleast one document that matches the query using one_of in the list of data
 print(data.search(employee.firstname.one_of(['jim', 'jack'])))
 
 # implemention of logical operators 
