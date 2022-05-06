@@ -67,8 +67,8 @@ print(data.tables())
 
 
 # insert data
-#data.insert({"eid":12012,"firstname":"roman","lastname":"reigns","dob":"22/9/1990", "location":"CA", "salary":"195k","position":"data engineer","experience":"7yrs"})
-#data.insert({"eid":12013,"firstname":"vicky","lastname":"rao","dob":"2/12/1991", "location":"CA", "salary":"165k","position":"database admin","experience":"7yrs"})
+data.insert({"eid":12012,"firstname":"roman","lastname":"reigns","dob":"22/9/1990", "location":"CA", "salary":"195k","position":"data engineer","experience":"7yrs"})
+data.insert({"eid":12013,"firstname":"vicky","lastname":"rao","dob":"2/12/1991", "location":"CA", "salary":"165k","position":"database admin","experience":"7yrs"})
 
 # updata data
 data.update({'firstname':'raju'},where('eid')==12003)
