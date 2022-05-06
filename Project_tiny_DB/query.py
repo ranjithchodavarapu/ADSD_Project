@@ -13,6 +13,7 @@ for i in data:
 
 employee = Query()
 
+
 # retrive data from the database that matches query 
 # can be done for every column name in the database 
 
@@ -78,3 +79,7 @@ data.update(set('position','database admin'),employee.lastname == 'car')
 print(data.search(employee.eid == 12011 ))
 print(data.search(employee.eid == 12003 ))
 print(data.search(employee.eid == 12015 ))
+
+#upsert
+data.upsert({'firstname': 'sri'}, employee.lastname == 'RAM')
+print(data.search(employee.eid == 12011 ))
