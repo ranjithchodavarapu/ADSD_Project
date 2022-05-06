@@ -1,4 +1,5 @@
 from tinydb import TinyDB, Query,where
+from tinydb.operations import delete,increment,decrement,set
 data = TinyDB('employee_db.json')
 
 
@@ -64,3 +65,16 @@ print(table.all())
 print(data.tables())
 
 
+# insert data
+#data.insert({"eid":12012,"firstname":"roman","lastname":"reigns","dob":"22/9/1990", "location":"CA", "salary":"195k","position":"data engineer","experience":"7yrs"})
+#data.insert({"eid":12013,"firstname":"vicky","lastname":"rao","dob":"2/12/1991", "location":"CA", "salary":"165k","position":"database admin","experience":"7yrs"})
+
+# updata data
+data.update({'firstname':'raju'},where('eid')==12003)
+data.update(delete('salary'), employee.lastname == 'RAM')
+data.update(increment('eid'),employee.lastname == 'rao') 
+data.update(decrement('eid'),employee.lastname == 'car') 
+data.update(set('position','database admin'),employee.lastname == 'car')
+print(data.search(employee.eid == 12011 ))
+print(data.search(employee.eid == 12003 ))
+print(data.search(employee.eid == 12015 ))
