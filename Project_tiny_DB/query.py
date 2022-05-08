@@ -45,6 +45,7 @@ print(data.search(employee.firstname.one_of(['jim', 'jack'])))
 print(data.search(~ (employee.lastname == 'jackie')))
 print(data.search((employee.firstname == 'jin') & (employee.salary < '135k')))
 print(data.search((employee.salary == '135k') | (employee.eid == 12010)))
+print(db.search((fetch.salary == '125k') & (fetch.eid == 12010) & (fetch.firstname == 'jin')))
 
 # get the no of docs in the database
 print(len(data))

@@ -51,7 +51,7 @@ print(db.search(fetch.eid == 12011 ))
 
 #db.truncate()
 
-print(db.search((fetch.salary == '125k') & (fetch.eid == 12010) & (fetch.firstname == 'jin')))
+
 
 
 #print(db.all())
