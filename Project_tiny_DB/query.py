@@ -28,7 +28,7 @@ print(data.search(employee['firstname']=='jim'))
 print(data.search(where('salary')=='130k'))
 
 
-# check whether field exists like column's
+# check whether field exists 
 print(data.search(employee.firstname.exists()))
 print(data.search(employee.position.exists()))
 
