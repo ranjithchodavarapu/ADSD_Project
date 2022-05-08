@@ -45,8 +45,8 @@ print(data.search(employee.firstname.one_of(['jim', 'jack'])))
 print(data.search(~ (employee.lastname == 'jackie')))
 print(data.search((employee.firstname == 'jin') & (employee.salary < '135k')))
 print(data.search((employee.salary == '135k') | (employee.eid == 12010)))
-print(db.search((fetch.salary == '125k') & (fetch.eid == 12010) & (fetch.firstname == 'jin')))
-print(db.search((fetch.salary == '125k') | (fetch.eid == 12010) | (fetch.firstname == 'vicky')))
+print(data.search((employee.salary == '125k') & (employee.eid == 12010) & (employee.firstname == 'jin')))
+print(data.search((employee.salary == '125k') | (employee.eid == 12010) | (employee.firstname == 'vicky')))
 
 # get the no of docs in the database
 print(len(data))
@@ -60,13 +60,13 @@ print(data.contains(employee.salary == '130k'))
 # check number of documents that match the query 
 print(data.count(employee.location == 'ohio'))
 
+
 # table implementation 
 table = data.table('employee_ssn')
 #table.insert({'ssn': "00123458"})
 print(table.all())
 #data.drop_table('employee_ssn')
 print(data.tables())
-
 
 # insert data
 data.insert({"eid":12012,"firstname":"roman","lastname":"reigns","dob":"22/9/1990", "location":"CA", "salary":"195k","position":"data engineer","experience":"7yrs"})
